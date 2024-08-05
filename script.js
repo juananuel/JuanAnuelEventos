@@ -59,7 +59,7 @@ function pintarNotas(notasAPintar) {
 
   notasAPintar.forEach((nota) => {
     contenedor.innerHTML += `
-      <div class="nota">
+      <div class="nota bg-body-tertiary">
         <div class="d-flex justify-content-center align-items-center">
           <input onClick="marcarRealizada(${nota.id})" type="checkbox" ${nota.realizada ? "checked" : ""}>
           <h3 class="ms-3">${nota.titulo}</h3>
@@ -141,4 +141,14 @@ function aplicarFiltros() {
   pintarNotas(notasFiltradas);
 }
 
-aplicarFiltros();
+function inicializarApp() {
+  document.getElementById('btnGuardar').addEventListener('click', guardarNota);
+  document.getElementById('btnLimpiar').addEventListener('click', limpiarCampos);
+
+  document.getElementById('busqueda').addEventListener('input', aplicarFiltros);
+  document.getElementById('filtroRealizadas').addEventListener('change', aplicarFiltros);
+
+  aplicarFiltros();
+}
+
+inicializarApp();
