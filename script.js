@@ -60,11 +60,13 @@ function pintarNotas(notasAPintar) {
   notasAPintar.forEach((nota) => {
     contenedor.innerHTML += `
       <div class="nota">
-        <h3>${nota.titulo}</h3>
-        <p>${nota.texto}</p>
+        <div class="d-flex justify-content-center align-items-center">
+          <input onClick="marcarRealizada(${nota.id})" type="checkbox" ${nota.realizada ? "checked" : ""}>
+          <h3 class="ms-3">${nota.titulo}</h3>
+        </div>
+        <p class="${nota.realizada ? 'texto-realizado' : ''}">${nota.texto}</p>
         <div class="d-flex flex-column">
           <button class="btn btn-danger mb-2" onclick="borrarNota(${nota.id})">Borrar nota</button>
-          <input onClick="marcarRealizada(${nota.id})" type="checkbox" ${nota.realizada ? "checked" : ""}>realizada
         </div>
       </div>
       `;
