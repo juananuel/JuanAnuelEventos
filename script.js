@@ -31,8 +31,18 @@ ars.addEventListener("input", () => {
 
 // ejercicio 3
 let notas = [
-  { id: 1, titulo: "Nota 1", texto: "Texto de la nota 1", realizada: false },
-  { id: 2, titulo: "Nota 2", texto: "Texto de la nota 2", realizada: true },
+  { 
+    id: 1, 
+    titulo: "Nota 1", 
+    texto: "Todo el texto de la nota 1", 
+    realizada: false 
+  },
+  { 
+    id: 2, 
+    titulo: "Nota 2", 
+    texto: "Todo el texto de la nota 2", 
+    realizada: true 
+  },
 ];
 
 let idGlobal = 2;
@@ -52,12 +62,8 @@ function mostrarNotas(notas) {
     card.innerHTML = `
       <h3>${nota.titulo}</h3>
       <p>${nota.texto}</p>
-      <input onClick="marcarRealizada(${nota.id})" type="checkbox" ${
-      nota.realizada ? "checked" : ""
-    }>
-        <button onClick="borrarNota(${
-          nota.id
-        })" class="btn btn-danger">Borrar Nota</button>
+      <input onClick="marcarRealizada(${nota.id})" type="checkbox" ${nota.realizada ? "checked" : ""}>
+      <button onClick="borrarNota(${nota.id})" class="btn btn-danger">Borrar Nota</button>
     `;
     contenedor.appendChild(card);
   });
@@ -65,7 +71,11 @@ function mostrarNotas(notas) {
 
 function agregarNota(titulo, texto) {
   idGlobal++;
-  const nuevaNota = { id: idGlobal, titulo, texto, realizada: false };
+  const nuevaNota = { 
+    id: idGlobal, 
+    titulo, texto, 
+    realizada: false 
+  };
   notas.push(nuevaNota);
   mostrarNotas(notas);
 }
@@ -89,11 +99,7 @@ function filtrarNotasRealizadas(notas) {
 }
 
 function filtrarNotasPorTexto(notas, texto) {
-  return texto
-    ? notas.filter(
-        (nota) => nota.titulo.includes(texto) || nota.texto.includes(texto)
-      )
-    : notas;
+  return texto ? notas.filter((nota) => nota.titulo.includes(texto) || nota.texto.includes(texto)): notas;
 }
 
 document.getElementById("guardar").addEventListener("click", () => {
