@@ -29,34 +29,29 @@ ars.addEventListener("input", () => {
 
 // ejercicio 3
 
-// a. Crear un array para guardar las notas
 let notas = [];
 
-// b. Agregar notas de prueba
 notas.push(
   {
   id: 1,
   titulo: "Sacar la basura",
-  texto: "mi mamá me va a retar si no lo hago",
+  texto: "mi mamá me va a matar si no lo hago",
   realizada: false,
 },
 {
   id: 2,
-  titulo: "Sacar la basura 2",
-  texto: "mi mamá me va a retar si no lo hago otra vez",
+  titulo: "Lavar los platos",
+  texto: "mi mamá me mata si no lo hago",
   realizada: false,
 }
 );
 
-// c. Crear variable idGlobal
 let idGlobal = 2;
 
-// e. Función para pintar las notas
 function pintarNotas(notasAPintar) {
   const contenedor = document.getElementById("contenedor-notas");
   contenedor.innerHTML = "";
 
-  // k. Validación para mostrar mensaje si no hay notas
   if (notasAPintar.length === 0) {
     contenedor.innerHTML = "<p>NO HAY NOTAS PARA MOSTRAR</p>";
     return;
@@ -67,14 +62,15 @@ function pintarNotas(notasAPintar) {
       <div class="nota">
         <h3>${nota.titulo}</h3>
         <p>${nota.texto}</p>
-        <button class="btn btn-danger" onclick="borrarNota(${nota.id})">Borrar nota</button>
-        <input onClick="marcarRealizada(${nota.id})" type="checkbox" ${nota.realizada ? "checked" : ""}>
+        <div class="d-flex flex-column">
+          <button class="btn btn-danger mb-2" onclick="borrarNota(${nota.id})">Borrar nota</button>
+          <input onClick="marcarRealizada(${nota.id})" type="checkbox" ${nota.realizada ? "checked" : ""}>realizada
+        </div>
       </div>
       `;
     });
 }
 
-// g. Función para agregar una nota
 function agregarNota(titulo, texto) {
   idGlobal++;
   notas.push({
@@ -85,7 +81,6 @@ function agregarNota(titulo, texto) {
   });
 }
 
-// h. Función para guardar una nueva nota
 function guardarNota() {
   const titulo = document.getElementById("titulo").value;
   const texto = document.getElementById("texto").value;
@@ -99,19 +94,16 @@ function guardarNota() {
   }
 }
 
-// i. y j. Función para borrar una nota
 function borrarNota(id) {
   notas = notas.filter((nota) => nota.id !== id);
   aplicarFiltros();
 }
 
-// l. Función para limpiar campos
 function limpiarCampos() {
   document.getElementById("titulo").value = "";
   document.getElementById("texto").value = "";
 }
 
-// n. Función para marcar como realizada
 function marcarRealizada(id) {
   const nota = notas.find((nota) => nota.id === id);
   if (nota) {
@@ -120,12 +112,10 @@ function marcarRealizada(id) {
   }
 }
 
-// p. Función para filtrar por realizadas
 function filtrarPorRealizadas(notasAFiltrar) {
   return notasAFiltrar.filter((nota) => nota.realizada);
 }
 
-// q. Función para filtrar por texto
 function filtrarPorTexto(notasAFiltrar, texto) {
   if (!texto) return notasAFiltrar;
   return notasAFiltrar.filter(
@@ -135,7 +125,6 @@ function filtrarPorTexto(notasAFiltrar, texto) {
   );
 }
 
-// r. Función para aplicar filtros
 function aplicarFiltros() {
   let notasFiltradas = [...notas];
   const textoBusqueda = document.getElementById("busqueda").value;
@@ -150,5 +139,4 @@ function aplicarFiltros() {
   pintarNotas(notasFiltradas);
 }
 
-// Inicializar la aplicación
 aplicarFiltros();
