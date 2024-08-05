@@ -52,6 +52,13 @@ body{
   margin: 0 auto;
 }
 
+.app-input-busqueda{
+  width: 600px;
+  margin: 20px auto;
+  border: 1px solid #797b81;
+  border-radius: 7px;
+}
+
 .nota{
   border: 1px solid #797b81;
   border-radius: 10px;
