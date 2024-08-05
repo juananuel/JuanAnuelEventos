@@ -2,12 +2,8 @@
 
 body{
   background-color: #f0f0f0;
+  background-color: rgb(56, 182, 255);
   font-family: "Open Sans", sans-serif;
-}
-
-.calculadoras-container{
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /*  Calculadora IMC  */
@@ -69,6 +65,19 @@ body{
   padding: 20px;
 }
 
+.card-head{
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
 .texto-realizado {
   text-decoration: line-through;
+}
+
+.no-notas{
+  background-color: #f0f0f0;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 7px;
+  font-weight: bold;
 }

@@ -53,14 +53,14 @@ function pintarNotas(notasAPintar) {
   contenedor.innerHTML = "";
 
   if (notasAPintar.length === 0) {
-    contenedor.innerHTML = "<p>NO HAY NOTAS PARA MOSTRAR</p>";
+    contenedor.innerHTML = '<p class="no-notas">NO HAY NOTAS PARA MOSTRAR</p>';
     return;
   }
 
   notasAPintar.forEach((nota) => {
     contenedor.innerHTML += `
       <div class="nota bg-body-tertiary">
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="card-head py-2 border-bottom d-flex justify-content-center align-items-center">
           <input onClick="marcarRealizada(${nota.id})" type="checkbox" ${nota.realizada ? "checked" : ""}>
           <h3 class="ms-3">${nota.titulo}</h3>
         </div>
