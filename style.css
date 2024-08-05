@@ -50,7 +50,7 @@ body{
 }
 
 .app-input{
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -59,7 +59,7 @@ body{
   margin-top: 30px;
 }
 
-.card{
+.nota{
   border: 1px solid #797b81;
   border-radius: 10px;
   width: 250px;

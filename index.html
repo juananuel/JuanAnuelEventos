@@ -57,23 +57,26 @@
   </div>
 
   <!-- Aplicación Notas -->
-  <div id="contenedor-notas" class="contenedor-notas d-flex flex-column">
+  <div id="" class="mt-5">
 
     <div class="app-notas bg-body-tertiary d-flex flex-column justify-content-evenly">
       <h2 class="text-center">Nota Nueva</h2>
       <div class="app-input d-flex flex-column gap-1">
-        <input type="text" id="titulo" placeholder="Título">
-        <textarea id="texto" rows="4" placeholder="Texto"></textarea>
-        <button id="guardar" class="btn btn-success">Guardar Nota</button>
-        <button id="limpiar" class="btn btn-danger">Limpiar Campos</button>
+        <input type="text" id="titulo" placeholder="Título de la nota">
+        <textarea id="texto" placeholder="Texto de la nota" rows="4"></textarea>
+        <button onclick="guardarNota()" class="btn btn-success">Guardar</button>
+        <button onclick="limpiarCampos()" class="btn btn-danger">Limpiar</button>
       </div>
+
       <div class="app-input d-flex justify-content-evenly align-items-center">
-          <input type="text" id="filtroTexto" placeholder="Filtrar por texto">
-          <input type="checkbox" id="filtroRealizadas"> Mostrar solo realizadas
+        <input type="text" id="busqueda" placeholder="Buscar notas" oninput="aplicarFiltros()">
+        <label>
+            <input type="checkbox" id="filtroRealizadas" onchange="aplicarFiltros()"> Mostrar solo realizadas
+        </label>
       </div>
     </div>
-    
-    <div id="contenedor" class="cards d-flex flex-wrap bg-body-tertiary"></div>
+
+    <div id="contenedor-notas" class="contenedor-notas cards d-flex flex-wrap bg-body-tertiary"></div>
 
   </div>
   
